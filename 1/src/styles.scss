@@ -1,3 +1,171 @@
+$tile-size: 1.5rem;
+$column-count: auto-fit;
+$row-count: 6;
+$column-gap: $tile-size / 3;
+$row-gap: ($tile-size / 3) * 1.5;
+$bezel-radius: 0.4rem;
+
+$background-green: rgb(39, 129, 39);
+
 body {
  background: #0F111A;
+ color: white;
+ font-family: Arial, Helvetica, sans-serif;
+ display: flex;
+ justify-content: center;
+ margin: 0;
+ padding: 0;
+}
+
+.phone-main {
+ $padding-bottom: 2rem;
+ display: inline-grid;
+ grid-template-columns: repeat($column-count, $tile-size);
+ grid-template-rows: 0.5rem repeat($row-count, $tile-size);
+ column-gap: $column-gap;
+ row-gap: $row-gap;
+ 
+ justify-content: center;
+ grid-auto-flow: dense;
+ 
+ padding: 0.5rem;
+ padding-bottom: $padding-bottom;
+ 
+ // max-height: $row-count * $tile-size + $row-gap * $row-count - 1 + $padding-bottom;
+ 
+ border: 0.2rem solid black;
+ 
+ background-image: url('../images/background.jpg');
+ background-size: cover;
+}
+
+.tray {
+ grid-row: 1 / 2;
+ grid-column: 1 / -1;
+ font-size: 0.1em;
+ 
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+%bezel {
+ content: '';
+ display: inline-block;
+ width: 100%;
+ height: 0.5rem;
+ background: black;
+}
+
+.phone-wrapper {
+ display: inline-flex;
+ flex-direction: column;
+ width: 100%;
+ margin: 0.5rem;
+ 
+ &::before, &::after {
+  @extend %bezel;
+ }
+ 
+ &::before {
+  border: {
+   top-left-radius: $bezel-radius;
+   top-right-radius: $bezel-radius;
+  }
+ }
+ 
+ &::after {
+  border: {
+   bottom-left-radius: $bezel-radius;
+   bottom-right-radius: $bezel-radius;
+  }
+ }
+}
+
+.tile {
+ background: grey;
+ border-radius: 0.2rem;
+ position: relative;
+ 
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ 
+ border: 0.05rem solid rgba(255, 255, 255, 0.541);
+ 
+ .title {
+  font-size: 0.3em;
+  text-transform: capitalize;
+  position: absolute;
+  bottom: -0.5rem;
+  font-weight: bold;
+ }
+}
+
+
+.widget-sm {
+ grid-row: span 2;
+ grid-column: span 2;
+}
+
+.widget-md {
+ grid-row: span 2;
+ grid-column: span 4;
+}
+
+.widget-lg {
+ grid-row: span 4;
+ grid-column: span 4;
+}
+
+.is-type-calendar {
+ background: rgb(103, 103, 196);
+}
+.is-type-weather {
+ background: rgb(25, 77, 51);
+}
+.is-type-banking {
+ background: rgb(255, 0, 0);
+}
+.is-type-wellbeing {
+ background: rgb(113, 113, 226);
+}
+.is-type-mail {
+ background: white;
+}
+.is-type-messages {
+ background: $background-green;
+}
+.is-type-languages {
+ background: rgb(96, 96, 197);
+}
+.is-type-translate {
+ background: black;
+}
+.is-type-games {
+ background: rebeccapurple;
+}
+.is-type-maps {
+ background: white;
+}
+.is-type-flying {
+ background: rgb(61, 61, 223);
+}
+.is-type-sports {
+ background: rgb(104, 71, 10);
+}
+.is-type-taxi {
+ background: black;
+}
+.is-type-phone {
+ background: $background-green;
+}
+.is-type-shopping {
+ background: rgb(211, 170, 95);
+}
+.is-type-music {
+ background: rgb(22, 36, 22);
+}
+.is-type-books {
+ background: orange;
 }
