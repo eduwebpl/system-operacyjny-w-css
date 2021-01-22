@@ -22,72 +22,96 @@
   <div class="tile is-type-calendar widget-md">
    📅
    <span class="title">calendar</span>
+   <button class="close">x</button>
   </div>
-  <div class="tile is-type-weather widget-sm">
+  <div class="tile is-type-weather">
    🌦
    <span class="title">weather</span>
+   <button class="close">x</button>
   </div>
   <div class="tile is-type-banking">
    💸
    <span class="title">banking</span>
+   <button class="close">x</button>
   </div>
   <div class="tile is-type-wellbeing">
    🧘‍♀️
    <span class="title">wellbeing</span>
+   <button class="close">x</button>
   </div>
   <div class="tile is-type-mail">
    ✉️
    <span class="title">mail</span>
+   <button class="close">x</button>
   </div>
   <div class="tile is-type-messages">
    💬
    <span class="title">messages</span>
+   <button class="close">x</button>
   </div>
   <div class="tile is-type-languages">
    🇪🇸
    <span class="title">languages</span>
+   <button class="close">x</button>
   </div>
   <div class="tile is-type-translate">
    🗣
    <span class="title">translate</span>
+   <button class="close">x</button>
   </div>
   <div class="tile is-type-games">
    🕹
    <span class="title">games</span>
+   <button class="close">x</button>
   </div>
   <div class="tile is-type-maps">
    🗺
    <span class="title">maps</span>
+   <button class="close">x</button>
   </div>
   <div class="tile is-type-flying">
    🛫
    <span class="title">flying</span>
+   <button class="close">x</button>
   </div>
   <div class="tile is-type-sports">
    🎳
    <span class="title">sports</span>
+   <button class="close">x</button>
   </div>
   <div class="tile is-type-taxi">
    🚕
    <span class="title">taxi</span>
+   <button class="close">x</button>
   </div>
   <div class="tile is-type-phone">
    📞
    <span class="title">phone</span>
+   <button class="close">x</button>
   </div>
   <div class="tile is-type-shopping">
    🛍
    <span class="title">shopping</span>
+   <button class="close">x</button>
   </div>
   <div class="tile is-type-music">
    🎼
    <span class="title">music</span>
+   <button class="close">x</button>
   </div>
-  <div class="tile is-type-books widget-sm">
+  <div class="tile is-type-books">
    📖
    <span class="title">books</span>
+   <button class="close">x</button>
   </div>
  </div>
+ <script>
+  document.addEventListener('click', (ev) => {
+   if (ev.target.matches('.close')) {
+    ev.target.parentNode.remove();
+   }
+  });
+ </script>
 </div>
 </body> 
 </html>

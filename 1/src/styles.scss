@@ -1,11 +1,84 @@
 $tile-size: 1.5rem;
-$column-count: auto-fit;
+$column-count: 4;
 $row-count: 6;
 $column-gap: $tile-size / 3;
 $row-gap: ($tile-size / 3) * 1.5;
 $bezel-radius: 0.4rem;
 
 $background-green: rgb(39, 129, 39);
+$animation-range: 2deg;
+
+
+@keyframes pulse { 
+ 0% { 
+  transform: scale(1);
+ }
+ 50% {
+  transform: scale(1.1);
+ }
+ 100% {
+  transform: scale(1);
+ }
+}
+
+@keyframes wiggle { 
+ 0% { 
+  transform: rotate(0deg);
+ }
+ 25% {
+  transform: rotate(-$animation-range);
+ }
+ 75% {
+  transform: rotate($animation-range);
+ }
+ 100% {
+  transform: rotate(0deg);
+ }
+}
+
+.phone-main.is-wiggling .tile {
+ animation-name: wiggle;
+ animation-timing-function: linear;
+ animation-duration: 0.5s;
+ animation-fill-mode: both;
+ animation-iteration-count: infinite;
+ 
+ .close {
+  $badge-size: 0.7rem;
+  box-sizing: border-box;
+  --badge-size: #{$badge-size};
+  border: none;
+  
+  color: black;
+  font-size: 0.3em;
+  display: block;
+  min-width: 0;
+  position: absolute;
+  top: -$badge-size / 2;
+  left: -$badge-size / 2;
+  width: var(--badge-size);
+  height: var(--badge-size);
+  background: rgb(209, 207, 207);
+  border-radius: calc(var(--badge-size) / 2);
+  
+  justify-content: center;
+  align-items: center;
+ }
+}
+
+.tile {
+ .close {
+  display: none;
+  &:active {
+   outline: none;
+  }
+ }
+}
+
+
+.tile:active {
+ opacity: 0.5;
+}
 
 body {
  background: #0F111A;
@@ -60,7 +133,7 @@ body {
 .phone-wrapper {
  display: inline-flex;
  flex-direction: column;
- width: 100%;
+ // width: 100%;
  margin: 0.5rem;
  
  &::before, &::after {
@@ -83,7 +156,6 @@ body {
 }
 
 .tile {
- background: grey;
  border-radius: 0.2rem;
  position: relative;
  
